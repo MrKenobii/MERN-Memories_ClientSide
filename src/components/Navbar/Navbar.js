@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { AppBar, Typography, Toolbar, Avatar, Button } from '@material-ui/core';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -10,7 +10,7 @@ import * as actionType from '../../constants/actionTypes';
 import useStyles from './styles';
 
 const Navbar = () => {
-  const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
+  const [user, setUser] = React.useState(JSON.parse(localStorage.getItem('profile')));
   const dispatch = useDispatch();
   const location = useLocation();
   const history = useHistory();
@@ -24,7 +24,7 @@ const Navbar = () => {
     setUser(null);
   };
 
-  useEffect(() => {
+  React.useEffect(() => {
     const token = user?.token;
 
     if (token) {

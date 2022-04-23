@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Avatar, Button, Paper, Grid, Typography, Container } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
@@ -14,13 +14,13 @@ import Input from './Input';
 const initialState = { firstName: '', lastName: '', email: '', password: '', confirmPassword: '' };
 
 const SignUp = () => {
-  const [form, setForm] = useState(initialState);
-  const [isSignup, setIsSignup] = useState(false);
+  const [form, setForm] = React.useState(initialState);
+  const [isSignup, setIsSignup] = React.useState(false);
+  const [showPassword, setShowPassword] = React.useState(false);
   const dispatch = useDispatch();
   const history = useHistory();
   const classes = useStyles();
 
-  const [showPassword, setShowPassword] = useState(false);
   const handleShowPassword = () => setShowPassword(!showPassword);
 
   const switchMode = () => {
